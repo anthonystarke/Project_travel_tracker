@@ -18,7 +18,12 @@ class TestCity < Minitest::Test
 
   def test_city_find
     city_1 = City.find(3)
-    assert_equal("Edinburgh",city_1.name)
+    assert_equal("Paris",city_1.name)
+  end
+
+  def test_city_country
+    city_1 = City.find(3)
+    assert_equal("Paris",city_1.country.name)
   end
 
 

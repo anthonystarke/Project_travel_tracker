@@ -1,0 +1,7 @@
+<h1> Not Visited Places</h1>
+
+
+<% @not_visited.each do |city| %>
+  <p><%=city.name%> - <%=city.country.name%></p>
+
+<% end %>

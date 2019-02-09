@@ -20,6 +20,55 @@ class Bucket_List
     SqlRunner.run(sql,values)
   end
 
+  def self.visited
+    sql = "SELECT * FROM cities
+      INNER JOIN bucket_lists
+      ON bucket_lists.city_id = cities.id
+      WHERE bucket_lists.visited = true;"
+    values = []
+    # binding.pry
+    result = SqlRunner.run(sql,values)
+    return result.map{|visited| City.new(visited)}
+  end
+
+  def self.visited_countries
+    sql = "SELECT * FROM countries
+      INNER JOIN cities
+      ON cities.country_id = countries.id
+      INNER JOIN bucket_lists
+      ON bucket_lists.city_id = cities.id
+      WHERE bucket_lists.visited = true;"
+    values = []
+    # binding.pry
+    result = SqlRunner.run(sql,values)
+    return result.map{|visited| City.new(visited)}
+  end
+
+  def self.not_visited
+    sql = "SELECT * FROM countries
+      INNER JOIN cities
+      ON cities.country_id = countries.id
+      INNER JOIN bucket_lists
+      ON bucket_lists.city_id = cities.id
+      WHERE bucket_lists.visited = false;"
+    values = []
+    result = SqlRunner.run(sql,values)
+    return result.map{|visited| City.new(visited)}
+  end
+
+  def self.not_visited_countries
+    sql = "SELECT * FROM countries
+      INNER JOIN cities
+      ON cities.country_id = countries.id
+      INNER JOIN bucket_lists
+      ON bucket_lists.city_id = cities.id
+      WHERE bucket_lists.visited = false;"
+    values = []
+    # binding.pry
+    result = SqlRunner.run(sql,values)
+    return result.map{|visited| City.new(visited)}
+  end
+
   def self.delete(id)
     sql = "DELETE * FROM bucket_lists WHERE id = $1"
     values = [id]

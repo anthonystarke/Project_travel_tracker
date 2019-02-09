@@ -1,4 +1,5 @@
 require_relative('../models/country')
+require_relative('../db/sql_runner')
 
 class City
 
@@ -7,16 +8,17 @@ class City
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @country_id = options['country_id']
+    @country_id = options['country_id'].to_i
   end
 
   def country
-    sql = "SELECT * FROM countries
+    sql = "SELECT countries.name FROM countries
           INNER JOIN cities
           ON cities.country_id = countries.id
-          WHERE id = $1"
-    values = [@id]
+          WHERE countries.id = $1"
+    values = [@country_id]
     result = SqlRunner.run(sql,values)[0]
+    # binding.pry
     return Country.new(result)
   end
 

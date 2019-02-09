@@ -1,0 +1,6 @@
+<h1> Visited Places</h1>
+
+
+<% @visited.each do |city| %>
+  <p><%=city.name%> - <%=city.country.name%></p>
+<% end %>
