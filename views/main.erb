@@ -9,3 +9,15 @@
 
 <p> Number of cities to Visit: <%= @not_visited_cities.count %> </p>
 <p> Number of countries Visited: <%= @not_visited_countries.count %> </p>
+
+<form method="get" action="/visited">
+  <button type="submit">Visited</button>
+</form>
+
+<form method="get" action="/not-visited">
+  <button type="submit">Not Visited</button>
+</form>
+
+<form method="get" action="/add-new">
+  <button type="submit">Add New</button>
+</form>

@@ -1,1 +1,42 @@
+<form method="get" action="/home">
+  <button type="submit">Home</button>
+</form>
+
 <h1> Add New</h1>
+
+<p> Add New country </p>
+
+<form method="post" action="/save-country">
+  <label for="save-country">Country</label>
+  <input
+  type="text"
+  name="name"
+  id="country_name"
+  />
+  <input type="submit" value="Save Country">
+</form>
+
+<p>New Cities will need a country</p>
+
+<form method="post" action="/save-city">
+
+  <label for="save-city">City</label>
+  <input
+  type="text"
+  name="name"
+  id="city_name"
+  />
+  <p>Choose a Country</p>
+  <select name="country_id" id="country">
+    <% @all_countries.each do |country| %>
+      <option value= <%= country.id %>><%= country.name %></option>
+    <% end %>
+  </select>
+  <p>Visited</p>
+  <select name="visited" id="country">
+    <option value=<%=true%>>True</option>
+    <option value=<%=false%>>False</option>
+  </select>
+
+  <input type="submit" value="Save Country">
+</form>

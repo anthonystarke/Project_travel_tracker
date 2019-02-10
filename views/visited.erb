@@ -1,6 +1,12 @@
+<form method="get" action="/home">
+  <button type="submit">Home</button>
+</form>
+
 <h1> Visited Places</h1>
 
-
-<% @visited.each do |city| %>
-  <p><%=city.name%> - <%=city.country.name%></p>
+<% @visited.each do |item| %>
+  <p><%=item.city.name%> - <%=item.city.country.name%></p>
+  <form method="post" action="/not-visited-city/<%=item.id%>">
+    <input name="visited"  type="submit" value="Not Visited">
+  </form>
 <% end %>

@@ -18,7 +18,8 @@ class Country
   def self.find_all
     sql = "SELECT * FROM countries"
     values = []
-    SqlRunner.run(sql,values)
+    result = SqlRunner.run(sql,values)
+    return result.map {|country| Country.new(country)}
   end
 
   def self.find(id)

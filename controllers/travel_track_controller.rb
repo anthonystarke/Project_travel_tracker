@@ -16,18 +16,56 @@ get '/home' do
   @not_visited_countries = Bucket_List.not_visited_countries()
 
   erb(:main)
-
 end
 
+post '/save-country' do
+  country_1 = Country.new(params)
+  country_1.save()
+  redirect to '/add-new'
+end
+
+# This is the action that will change the status of a not visited country/city to
+post '/visited-city/:id' do
+  found_item = Bucket_List.find(params[:id])
+  found_item.visited = true
+  found_item.update()
+  redirect to '/not-visited'
+end
+
+# This is the action that will change the status of a visited country/city to NOT
+post '/not-visited-city/:id' do
+  found_item = Bucket_List.find(params[:id])
+  found_item.visited = false
+  found_item.update()
+  redirect to '/visited'
+end
+
+post '/save-city' do
+  city_1 = City.new(params)
+  city_1.save()
+
+  details = {
+    "visited" => params[:visited],
+    "city_id" => city_1.id
+  }
+  # binding.pry
+  bucket_list = Bucket_List.new(details)
+  bucket_list.save()
+  redirect to '/home'
+end
+
+get '/add-new' do
+  @all_countries = Country.find_all()
+  # binding.pry
+  erb(:add_new)
+end
 
 get '/visited' do
   @visited = Bucket_List.visited()
-
   erb(:visited)
 end
 
 get '/not-visited' do
   @not_visited = Bucket_List.not_visited()
-
   erb(:not_visited)
 end
