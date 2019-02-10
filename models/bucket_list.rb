@@ -10,13 +10,15 @@ class Bucket_List
   end
 
   def city
-    sql = "SELECT * FROM cities
-        INNER JOIN bucket_lists
-        ON bucket_lists.city_id = cities.id
-        WHERE bucket_lists.id = $1"
-    values = [@id]
-    result = SqlRunner.run(sql,values)[0]
-    return City.new(result)
+    # sql = "SELECT * FROM cities
+    #     INNER JOIN bucket_lists
+    #     ON bucket_lists.city_id = cities.id
+    #     WHERE bucket_lists.id = $1"
+    # values = [@id]
+    # result = SqlRunner.run(sql,values)[0]
+    # # binding.pry
+    # return City.new(result)
+      return City.find(city_id)
   end
 
   def save
@@ -79,7 +81,7 @@ class Bucket_List
   end
 
   def self.delete(id)
-    sql = "DELETE * FROM bucket_lists WHERE id = $1"
+    sql = "DELETE FROM bucket_lists WHERE id = $1"
     values = [id]
     SqlRunner.run(sql,values)
   end

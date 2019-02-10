@@ -5,8 +5,11 @@
 <h1> Visited Places</h1>
 
 <% @visited.each do |item| %>
-  <p><%=item.city.name%> - <%=item.city.country.name%></p>
+  <p><%=item.city.name%> - <%= item.city.country.name %></p>
   <form method="post" action="/not-visited-city/<%=item.id%>">
     <input name="visited"  type="submit" value="Not Visited">
+  </form>
+  <form method="post" action="/delete/<%=item.id%>">
+    <input name="visited"  type="submit" value="Delete">
   </form>
 <% end %>

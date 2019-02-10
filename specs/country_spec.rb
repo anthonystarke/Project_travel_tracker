@@ -28,7 +28,7 @@ class TestCountry < Minitest::Test
 
   def test_country_find_all
     # Country.delete(1)
-    assert_equal(4,Country.find_all.count)
+    assert_equal(7,Country.find_all.count)
 
   end
 
@@ -36,5 +36,11 @@ class TestCountry < Minitest::Test
   #   Country.delete(1)
   #   assert_equal(3,Country.find_all.count)
   # end
+
+  def test_country_has_city
+    country_1 = Country.find(10)
+    p country_1.any_cities
+    assert_equal(0,country_1.any_cities)
+  end
 
 end

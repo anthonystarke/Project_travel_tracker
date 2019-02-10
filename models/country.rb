@@ -15,6 +15,17 @@ class Country
     @id = SqlRunner.run(sql,values)[0]['id']
   end
 
+  def any_cities
+    sql = "SELECT * FROM cities
+          INNER JOIN countries
+          ON cities.country_id = countries.id
+          WHERE countries.id = $1
+      "
+    values = [@id]
+    result = SqlRunner.run(sql,values)
+    return result.count
+  end
+
   def self.find_all
     sql = "SELECT * FROM countries"
     values = []

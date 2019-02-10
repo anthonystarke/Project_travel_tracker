@@ -18,6 +18,20 @@ get '/home' do
   erb(:main)
 end
 
+post '/delete/:id' do
+  item = Bucket_List.find(params[:id])
+  city = item.city
+  country = item.city.country
+  binding.pry
+  Bucket_List.delete(item.id)
+  City.delete(city.id)
+  # if country.any_cities < 1
+    Country.delete(country.id)
+  # end
+
+  redirect to '/visited'
+end
+
 post '/save-country' do
   country_1 = Country.new(params)
   country_1.save()
@@ -62,6 +76,7 @@ end
 
 get '/visited' do
   @visited = Bucket_List.visited()
+  # binding.pry
   erb(:visited)
 end
 

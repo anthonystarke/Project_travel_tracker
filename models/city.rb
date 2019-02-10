@@ -12,14 +12,15 @@ class City
   end
 
   def country
-    sql = "SELECT countries.name FROM countries
-          INNER JOIN cities
-          ON cities.country_id = countries.id
-          WHERE countries.id = $1"
-    values = [@country_id]
-    result = SqlRunner.run(sql,values)[0]
+    # sql = "SELECT * FROM countries
+    #       INNER JOIN cities
+    #       ON cities.country_id = countries.id
+    #       WHERE countries.id = $1"
+    # values = [@country_id]
+    # result = SqlRunner.run(sql,values)[0]
     # binding.pry
-    return Country.new(result)
+    # return Country.new(result)
+    return Country.find(country_id)
   end
 
   def save
@@ -31,7 +32,7 @@ class City
   def self.delete(id)
     sql = "DELETE FROM cities WHERE id = $1"
     values = [id]
-    Sqlrunner.run(sql,values)
+    SqlRunner.run(sql,values)
   end
 
   def self.delete_all
