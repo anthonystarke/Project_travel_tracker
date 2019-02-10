@@ -3,7 +3,8 @@ require_relative('../db/sql_runner')
 
 class City
 
-  attr_reader :id, :name, :country_id
+  attr_reader :id, :country_id
+  attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -12,15 +13,13 @@ class City
   end
 
   def country
-    # sql = "SELECT * FROM countries
-    #       INNER JOIN cities
-    #       ON cities.country_id = countries.id
-    #       WHERE countries.id = $1"
-    # values = [@country_id]
-    # result = SqlRunner.run(sql,values)[0]
-    # binding.pry
-    # return Country.new(result)
     return Country.find(country_id)
+  end
+
+  def update
+    sql = "UPDATE cities SET name = $1 WHERE id = $2"
+    values = [@name,@id]
+    SqlRunner.run(sql,values)
   end
 
   def save

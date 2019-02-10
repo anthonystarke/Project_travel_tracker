@@ -18,6 +18,17 @@ get '/home' do
   erb(:main)
 end
 
+get'/all' do
+  @all_locations = Bucket_List.find_all()
+
+  erb(:all)
+end
+
+get '/edit/:id' do
+  @item = Bucket_List.find(params[:id])
+  erb(:edit)
+end
+
 post '/delete/:id' do
   item = Bucket_List.find(params[:id])
   city = item.city
@@ -28,8 +39,8 @@ post '/delete/:id' do
   if country.any_cities < 1
     Country.delete(country.id)
   end
-
-  redirect to '/visited'
+  redirect back
+  # redirect to '/visited'
 end
 
 post '/save-country' do
@@ -38,12 +49,27 @@ post '/save-country' do
   redirect to '/add-new'
 end
 
+post '/save-changes/:id' do
+
+  item = Bucket_List.find(params[:id])
+  # binding.pry
+  city = item.city
+  city.name = params[:city_name]
+  city.update()
+
+  country = item.city.country
+  country.name = params[:country_name]
+  country.update()
+
+  redirect to back
+end
+
 # This is the action that will change the status of a not visited country/city to
 post '/visited-city/:id' do
   found_item = Bucket_List.find(params[:id])
   found_item.visited = true
   found_item.update()
-  redirect to '/not-visited'
+  redirect to back
 end
 
 # This is the action that will change the status of a visited country/city to NOT
@@ -51,7 +77,7 @@ post '/not-visited-city/:id' do
   found_item = Bucket_List.find(params[:id])
   found_item.visited = false
   found_item.update()
-  redirect to '/visited'
+  redirect to back
 end
 
 post '/save-city' do
@@ -65,7 +91,7 @@ post '/save-city' do
   # binding.pry
   bucket_list = Bucket_List.new(details)
   bucket_list.save()
-  redirect to '/home'
+  redirect to back
 end
 
 get '/add-new' do

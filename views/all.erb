@@ -1,0 +1,35 @@
+<form method="get" action="/home">
+  <button type="submit">Home</button>
+</form>
+
+<h1>List of all Cities and countries</h1>
+
+<% @all_locations.each do |item| %>
+
+  <p>
+    <%= item.city.name %>  -- <%= item.city.country.name %>
+    <%if item.visited == "t" %>
+    -- Visited
+    <%else%>
+    -- Not Visited
+    <%end%>
+  </p>
+
+  <%if item.visited == "f" %>
+    <form method="post" action="/visited-city/<%=item.id%>">
+      <input name="visited"  type="submit" value="Visited">
+    </form>
+  <%else%>
+    <form method="post" action="/not-visited-city/<%=item.id%>">
+      <input name="visited"  type="submit" value="Not Visited">
+    </form>
+  <% end %>
+  <form method="get" action="/edit/<%=item.id%>">
+    <input name="visited"  type="submit" value="Edit">
+  </form>
+
+  <form method="post" action="/delete/<%=item.id%>">
+    <input name="visited"  type="submit" value="Delete">
+  </form>
+
+<% end %>
