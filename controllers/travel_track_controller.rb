@@ -22,12 +22,12 @@ post '/delete/:id' do
   item = Bucket_List.find(params[:id])
   city = item.city
   country = item.city.country
-  binding.pry
+  # binding.pry
   Bucket_List.delete(item.id)
   City.delete(city.id)
-  # if country.any_cities < 1
+  if country.any_cities < 1
     Country.delete(country.id)
-  # end
+  end
 
   redirect to '/visited'
 end
