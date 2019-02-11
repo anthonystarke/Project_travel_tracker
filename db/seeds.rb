@@ -2,6 +2,9 @@ require_relative('../models/country')
 require_relative('../models/city')
 require_relative('../models/bucket_list')
 
+Bucket_List.delete_all
+City.delete_all
+Country.delete_all
 
 @country_1_details = {
   'name' => 'Scotland'
@@ -62,15 +65,15 @@ require_relative('../models/bucket_list')
 }
 @bucket_list_2_details = {
   "visited" => false,
-  "city_id" => @city_1.id
+  "city_id" => @city_2.id
 }
 @bucket_list_3_details = {
   "visited" => false,
-  "city_id" => @city_1.id
+  "city_id" => @city_3.id
 }
 @bucket_list_4_details = {
   "visited" => false,
-  "city_id" => @city_1.id
+  "city_id" => @city_4.id
 }
 
 @bucket_list_1 = Bucket_List.new(@bucket_list_1_details)

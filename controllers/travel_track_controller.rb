@@ -29,6 +29,16 @@ get '/edit/:id' do
   erb(:edit)
 end
 
+get '/edit-city/:id' do
+  @item = Bucket_List.find(params[:id])
+  erb(:edit_city)
+end
+
+get '/edit-country/:id' do
+  @item = Bucket_List.find(params[:id])
+  erb(:edit_country)
+end
+
 post '/delete/:id' do
   item = Bucket_List.find(params[:id])
   city = item.city
@@ -49,7 +59,7 @@ post '/save-country' do
   redirect to '/add-new'
 end
 
-post '/save-changes/:id' do
+post '/save-changes-city/:id' do
 
   item = Bucket_List.find(params[:id])
   # binding.pry
@@ -57,8 +67,15 @@ post '/save-changes/:id' do
   city.name = params[:city_name]
   city.update()
 
-  country = item.city.country
-  country.name = params[:country_name]
+  redirect to back
+end
+
+post '/save-changes-country/:id' do
+
+  item = Bucket_List.find(params[:id])
+  # binding.pry
+  country = item.city.country()
+  country.name = params[:city_name]
   country.update()
 
   redirect to back

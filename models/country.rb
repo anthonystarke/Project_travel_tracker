@@ -10,7 +10,7 @@ class Country
     @name = options['name']
   end
 
-  def save()
+  def save
     sql = "INSERT INTO countries(name)VALUES($1)RETURNING id"
     values = [@name]
     @id = SqlRunner.run(sql,values)[0]['id']

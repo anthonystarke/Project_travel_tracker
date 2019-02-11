@@ -1,0 +1,20 @@
+<form method="get" action="/home">
+  <button type="submit">Home</button>
+</form>
+
+<h1> Edit Location Details</h1>
+
+<p>
+  <%= @item.city.country.name %>
+</p>
+
+<form method="post" action='/save-changes-country/<%=@item.id%>'>
+  <label for="save-changes">Country Name</label>
+  <input
+  type="text"
+  name="country_name"
+  id="country_name"
+  value=<%=@item.city.country.name%>
+  />
+  <input type="submit" value="Save Changes">
+</form>
