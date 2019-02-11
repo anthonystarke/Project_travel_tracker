@@ -1,3 +1,37 @@
+
+.grid-container-title {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* background-color: #2196F3; */
+  padding: 5px;
+}
+
+.page-title {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  grid-column: 3;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.grid-container-add-new {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* background-color: #2196F3; */
+  padding: 5px;
+}
+
+.page-add-list {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  grid-column: 3;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+
 .grid-container-nav{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -53,4 +87,8 @@
 
 .profile-pic {
   width: 5em;
+}
+
+.profile-text{
+  font-size:2em;
 }

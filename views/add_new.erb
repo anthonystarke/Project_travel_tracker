@@ -1,38 +1,48 @@
-<h1>Add New</h1>
 
-<p> Add New country </p>
+<div class="grid-container-title">
+  <div class="page-title">
+    <h1>Add New</h1>
+  </div>
+</div>
 
-<form method="post" action="/save-country">
-  <label for="save-country">Country</label>
-  <input
-  type="text"
-  name="name"
-  id="country_name"
-  />
-  <input type="submit" value="Save Country">
-</form>
+<div class="grid-container-add-new">
+  <div class="page-add-list">
 
-<p>New Cities will need a country</p>
+    <h3> Add New country </h3>
 
-<form method="post" action="/save-city">
+    <form method="post" action="/save-country">
+      <label for="save-country">Country</label>
+      <input
+      type="text"
+      name="name"
+      id="country_name"
+      />
+      <input type="submit" value="Save Country">
+    </form>
 
-  <label for="save-city">City</label>
-  <input
-  type="text"
-  name="name"
-  id="city_name"
-  />
-  <p>Choose a Country</p>
-  <select name="country_id" id="country">
-    <% @all_countries.each do |country| %>
-      <option value= <%= country.id %>><%= country.name %></option>
-    <% end %>
-  </select>
-  <p>Visited</p>
-  <select name="visited" id="country">
-    <option value=<%=true%>>Yes</option>
-    <option value=<%=false%>>No</option>
-  </select>
+    <h3>New Cities will need a country</h3>
 
-  <input type="submit" value="Save Country">
-</form>
+    <form method="post" action="/save-city">
+
+      <label for="save-city">City</label>
+      <input
+      type="text"
+      name="name"
+      id="city_name"
+      />
+      <h3>Choose a Country</h3>
+      <select name="country_id" id="country">
+        <% @all_countries.each do |country| %>
+          <option value= <%= country.id %>><%= country.name %></option>
+        <% end %>
+      </select>
+      <p>Visited</p>
+      <select name="visited" id="country">
+        <option value=<%=true%>>Yes</option>
+        <option value=<%=false%>>No</option>
+      </select>
+
+      <input type="submit" value="Save Country">
+    </form>
+  </div>
+</div>
