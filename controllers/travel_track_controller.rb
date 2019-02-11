@@ -39,6 +39,23 @@ get '/edit-country/:id' do
   erb(:edit_country)
 end
 
+get '/add-new' do
+  @all_countries = Country.find_all()
+  # binding.pry
+  erb(:add_new)
+end
+
+get '/visited' do
+  @visited = Bucket_List.visited()
+  # binding.pry
+  erb(:visited)
+end
+
+get '/not-visited' do
+  @not_visited = Bucket_List.not_visited()
+  erb(:not_visited)
+end
+
 post '/delete/:id' do
   item = Bucket_List.find(params[:id])
   city = item.city
@@ -109,21 +126,4 @@ post '/save-city' do
   bucket_list = Bucket_List.new(details)
   bucket_list.save()
   redirect to back
-end
-
-get '/add-new' do
-  @all_countries = Country.find_all()
-  # binding.pry
-  erb(:add_new)
-end
-
-get '/visited' do
-  @visited = Bucket_List.visited()
-  # binding.pry
-  erb(:visited)
-end
-
-get '/not-visited' do
-  @not_visited = Bucket_List.not_visited()
-  erb(:not_visited)
 end
