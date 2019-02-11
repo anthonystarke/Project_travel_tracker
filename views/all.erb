@@ -1,40 +1,39 @@
-<form method="get" action="/home">
-  <button type="submit">Home</button>
-</form>
 
 <h1>List of All Destinations</h1>
 
 <h2>List of all Cities</h2>
 
-<% @all_locations.each do |item| %>
+<div class="grid-container-list">
+  <% @all_locations.each do |item| %>
+    <div class="item-list">
+      <p>
+        <%= item.city.name %>
+        <%if item.visited == "t" %>
+        -- Visited
+        <%else%>
+        -- Not Visited
+        <%end%>
+      </p>
 
-  <p>
-    <%= item.city.name %>
-    <%if item.visited == "t" %>
-    -- Visited
-    <%else%>
-    -- Not Visited
-    <%end%>
-  </p>
+      <%if item.visited == "f" %>
+        <form method="post" action="/visited-city/<%=item.id%>">
+          <input name="visited"  type="submit" value="Visited">
+        </form>
+      <%else%>
+        <form method="post" action="/not-visited-city/<%=item.id%>">
+          <input name="visited"  type="submit" value="Not Visited">
+        </form>
+      <% end %>
+      <form method="get" action="/edit-city/<%=item.id%>">
+        <input name="visited"  type="submit" value="Edit">
+      </form>
 
-  <%if item.visited == "f" %>
-    <form method="post" action="/visited-city/<%=item.id%>">
-      <input name="visited"  type="submit" value="Visited">
-    </form>
-  <%else%>
-    <form method="post" action="/not-visited-city/<%=item.id%>">
-      <input name="visited"  type="submit" value="Not Visited">
-    </form>
+      <form method="post" action="/delete/<%=item.id%>">
+        <input name="visited"  type="submit" value="Delete">
+      </form>
+    </div>
   <% end %>
-  <form method="get" action="/edit-city/<%=item.id%>">
-    <input name="visited"  type="submit" value="Edit">
-  </form>
-
-  <form method="post" action="/delete/<%=item.id%>">
-    <input name="visited"  type="submit" value="Delete">
-  </form>
-
-<% end %>
+</div>
 
 <h2>List of all countries</h2>
 

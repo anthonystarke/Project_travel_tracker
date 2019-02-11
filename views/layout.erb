@@ -3,27 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Why Not Track</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
   </head>
   <body>
-
-    <h1> Welcome </h1>
-
-    <h2>Nina Williams</h2>
+    <div class= "grid-container-main">
+      <div class="item-main">
+        <h1> Welcome </h1>
+      </div>
+      <div class="item-main">
+        <img class="profile-pic" src="images/nina.jpg" alt="Profile Picture"/>
+      </div>
+      <div class="item-main">
+        <h2>Nina Williams</h2>
+      </div>
+  </div>
     <nav>
-      <ul>
-        <li>
-          <a href="/home">Home</a>
-        </li>
-        <li>
-          <a href="/visited">Visited</a>
-        </li>
-        <li>
-          <a href="/not-visited">Not - Visited</a>
-        </li>
-        <li>
-          <a href="/all">all</a>
-        </li>
-      </ul>
+      <div class="grid-container-nav">
+        <a class="item-nav" href="/home">Home</a>
+        <a class="item-nav" href="/visited">Visited</a>
+        <a class="item-nav" href="/not-visited">Not - Visited</a>
+        <a class="item-nav" href="/all">All</a>
+        <a class="item-nav" href="/add-new">Add More</a>
+      </div>
     </nav>
 
     <%= yield %>
