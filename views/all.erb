@@ -6,14 +6,14 @@
 <div class="grid-container-list">
   <% @all_locations.each do |item| %>
     <div class="item-list">
-      <p>
+      <h3 class="item-text">
         <%= item.city.name %>
         <%if item.visited == "t" %>
         -- Visited
         <%else%>
         -- Not Visited
         <%end%>
-      </p>
+      </h3>
 
       <%if item.visited == "f" %>
         <form method="post" action="/visited-city/<%=item.id%>">
@@ -36,20 +36,21 @@
 </div>
 
 <h2>List of all countries</h2>
+<div class="grid-container-list">
+  <% @all_locations.each do |item| %>
+    <div class="item-list">
+      <h3 class="item-text">
+        <%= item.city.country.name %>
+        <%if item.visited == "t" %>
+        -- Visited
+        <%else%>
+        -- Not Visited
+        <%end%>
+      </h3>
 
-<% @all_locations.each do |item| %>
-
-  <p>
-    <%= item.city.country.name %>
-    <%if item.visited == "t" %>
-    -- Visited
-    <%else%>
-    -- Not Visited
-    <%end%>
-  </p>
-
-  <form method="get" action="/edit-country/<%=item.id%>">
-    <input name="visited"  type="submit" value="Edit">
-  </form>
-
-<% end %>
+      <form method="get" action="/edit-country/<%=item.id%>">
+        <input name="visited"  type="submit" value="Edit">
+      </form>
+    </div>
+    <% end %>
+  </div>

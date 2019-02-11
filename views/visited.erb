@@ -1,8 +1,12 @@
 <h1> Visited Places</h1>
 
-  <% @visited.each do |item| %>
-    <p><%=item.city.name%> - <%= item.city.country.name %></p>
-    <form method="post" action="/not-visited-city/<%=item.id%>">
-      <input name="visited"  type="submit" value="Not Visited">
-    </form>
-  <% end %>
+  <div class="grid-container-list">
+    <% @visited.each do |item| %>
+    <div class="item-list">
+      <h3 class="item-text"><%=item.city.name%> - <%= item.city.country.name %></h3>
+      <form method="post" action="/not-visited-city/<%=item.id%>">
+        <input name="visited"  type="submit" value="Not Visited">
+      </form>
+    </div>
+    <% end %>
+    </div>
