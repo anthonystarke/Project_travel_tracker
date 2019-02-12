@@ -1,6 +1,18 @@
 
-<h2> Number of cities Visited: <%= @visited_cities.count %> </h2>
-<h2> Number of countries Visited: <%= @visited_countries.count %> </h2>
+<div class="main-page-container">
+  <div class="main-page-item">
+    <h2> Number of cities Visited: <%= @visited_cities.count %> </h2>
+    <h2> Number of countries Visited: <%= @visited_countries.count %> </h2>
+    <h2> Number of cities to Visit: <%= @not_visited_cities.count %> </h2>
+    <h2> Number of countries Visited: <%= @not_visited_countries.count %> </h2>
+  </div>
 
-<h2> Number of cities to Visit: <%= @not_visited_cities.count %> </h2>
-<h2> Number of countries Visited: <%= @not_visited_countries.count %> </h2>
+    <%@visited_cities.each do |item| %>
+    <div class="main-page-item">
+      <%if item.city.photo_loc %>
+        <img class="location-image" src="<%=item.city.photo_loc%>"/>
+      <%end%>
+    </div>
+    <%end%>
+
+</div>

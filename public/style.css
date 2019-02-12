@@ -31,8 +31,8 @@ body {
 }
 
 .location-image {
-  height:100px;
-  width:100px;
+  height:10em;
+  width:10em;
 }
 
 .item-logo {
@@ -49,6 +49,23 @@ body {
 
 }
 
+.main-page-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 2em;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-bottom: 5em;
+}
+
+.main-page-item {
+  grid-column: auto;
+  margin:10px;
+  border-radius:10%;
+  padding: 0.5em;
+  border: solid red;
+}
+
 .generic-container-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,6 +79,7 @@ body {
   grid-column: auto;
   margin:10px;
   border-radius:10%;
+  padding: 0.5em;
 }
 
 .generic-list-text {
@@ -97,22 +115,6 @@ body {
 a:hover {
   background-color: #253342;
   color: #D1D3D6;
-}
-
-.grid-container-nav{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  /* background-color: #2196F3; */
-  padding: 5px;
-}
-
-.item-nav {
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  grid-column: auto;
-  padding: 5px;
-  text-align: center;
-  font-size: 2em;
-
 }
 
 .title-container{

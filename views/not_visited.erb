@@ -7,7 +7,7 @@
 
   <div class="generic-container-list">
     <% @not_visited.each do |item| %>
-      <div class="generic-list">
+      <div class="generic-list generic-list-text generic-list-background">
         <%if item.city.photo_loc %>
           <img class="location-image" src="<%=item.city.photo_loc%>" />
         <%end%>
@@ -16,7 +16,7 @@
           <input name="visited"  type="submit" value="Visited">
         </form>
         <form method="get" action="/upload_image/<%=item.id%>">
-          <input name="upload"  type="submit" value="Upload">
+          <input name="upload"  type="submit" value="Add an image">
         </form>
       </div>
     <% end %>

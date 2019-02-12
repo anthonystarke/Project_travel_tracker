@@ -11,7 +11,6 @@ get '/home' do
 
   @visited_cities = Bucket_List.visited()
   @not_visited_cities = Bucket_List.not_visited()
-
   @visited_countries = Bucket_List.visited_countries()
   @not_visited_countries = Bucket_List.not_visited_countries()
 
