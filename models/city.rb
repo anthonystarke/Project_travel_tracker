@@ -4,12 +4,13 @@ require_relative('../db/sql_runner')
 class City
 
   attr_reader :id, :country_id
-  attr_accessor :name
+  attr_accessor :name, :photo_loc
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @country_id = options['country_id'].to_i
+    @photo_loc = options['photo_loc'] if options['photo_loc']
   end
 
   def country
@@ -17,14 +18,14 @@ class City
   end
 
   def update
-    sql = "UPDATE cities SET name = $1 WHERE id = $2"
-    values = [@name,@id]
+    sql = "UPDATE cities SET (name,photo_loc) = ($1,$2) WHERE id = $3"
+    values = [@name,@photo_loc,@id]
     SqlRunner.run(sql,values)
   end
 
   def save
-    sql = "INSERT INTO cities(name,country_id)VALUES($1,$2) RETURNING id"
-    values = [@name,@country_id]
+    sql = "INSERT INTO cities(name,country_id,photo_loc)VALUES($1,$2,$3) RETURNING id"
+    values = [@name,@country_id,@photo_loc]
     @id = SqlRunner.run(sql,values)[0]['id']
   end
 

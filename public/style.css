@@ -1,4 +1,10 @@
 
+
+.location-image {
+  width:0.5em;
+
+}
+
 .grid-container-title {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

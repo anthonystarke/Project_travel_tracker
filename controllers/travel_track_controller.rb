@@ -18,10 +18,27 @@ get '/home' do
   erb(:main)
 end
 
-get '/upload_image' do
+get '/upload_image/:id' do
+  @location = Bucket_List.find(params[:id])
+
   erb(:upload_image)
+end
 
+post '/save_image/:id' do
 
+  item = Bucket_List.find(params[:id])
+  city = item.city
+
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+
+  File.open("./public/#{@filename}", 'wb') do |f|
+    f.write(file.read)
+  end
+  city.photo_loc = "./#{@filename}"
+  city.update()
+
+  redirect to '/all'
 end
 
 get '/all' do

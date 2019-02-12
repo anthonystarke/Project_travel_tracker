@@ -9,9 +9,13 @@
   <div class="grid-container-list">
     <% @visited.each do |item| %>
       <div class="item-list">
+        <img class="location-image" src="<%=item.city.photo_loc%>" />
         <h3 class="item-text"><%=item.city.name%> - <%= item.city.country.name %></h3>
         <form method="post" action="/not-visited-city/<%=item.id%>">
           <input name="visited"  type="submit" value="Not Visited">
+        </form>
+        <form method="get" action="/upload_image/<%=item.id%>">
+          <input name="upload"  type="submit" value="Upload">
         </form>
       </div>
     <% end %>
