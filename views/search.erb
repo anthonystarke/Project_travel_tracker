@@ -1,0 +1,16 @@
+<h1>Search Result</h1>
+
+
+<% @locations_found.each do |item| %>
+  <p>
+    <%=item.city.name%> - <%=item.city.country.name%>
+  </p>
+
+  <form method="get" action="/edit-city/<%=item.id%>">
+    <input name="visited"  type="submit" value="Edit">
+  </form>
+
+  <form method="post" action="/delete/<%=item.id%>">
+    <input name="visited"  type="submit" value="Delete">
+  </form>
+<%end%>

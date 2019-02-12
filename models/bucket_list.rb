@@ -98,4 +98,15 @@ class Bucket_List
     return result.map {|bucket_list| Bucket_List.new(bucket_list)}
   end
 
+  def self.find_by_name(value)
+    all_locations = self.find_all()
+    found_locations = []
+    all_locations.each do |item|
+      if item.city.name == value || item.city.country.name == value
+        found_locations << item
+      end
+    end
+    return found_locations
+  end
+
 end

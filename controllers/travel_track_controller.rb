@@ -18,14 +18,15 @@ get '/home' do
   erb(:main)
 end
 
-get'/all' do
+get '/all' do
   @all_locations = Bucket_List.find_all()
-  @all_countries = []
-  @all_locations.each do |city|
-    @all_countries << city.country
-  end
-  @all_countries.uniq!
+  @all_countries = Country.find_all()
   erb(:all)
+end
+
+get '/search' do
+  @locations_found = Bucket_List.find_by_name(params['search'])
+  erb(:search)
 end
 
 get '/edit/:id' do
@@ -39,7 +40,7 @@ get '/edit-city/:id' do
 end
 
 get '/edit-country/:id' do
-  @item = Bucket_List.find(params[:id])
+  @item = Country.find(params[:id])
   erb(:edit_country)
 end
 
@@ -75,7 +76,7 @@ post '/delete/:id' do
 end
 
 post '/save-country' do
-  count = Country.find_by_name(params["name"])
+  count = Country.find_by_name_count(params["name"])
   # binding.pry
   if(count < 1)
     country_1 = Country.new(params)
@@ -97,10 +98,9 @@ end
 
 post '/save-changes-country/:id' do
 
-  item = Bucket_List.find(params[:id])
+  country = Country.find(params[:id])
   # binding.pry
-  country = item.city.country()
-  country.name = params[:city_name]
+  country.name = params[:country_name]
   country.update()
 
   redirect to back
@@ -124,7 +124,7 @@ end
 
 post '/save-city' do
 
-  count = City.find_by_name(params["name"])
+  count = City.find_by_name_count(params["name"])
   # binding.pry
   if(count < 1)
 

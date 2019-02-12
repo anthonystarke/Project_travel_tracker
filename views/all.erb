@@ -7,6 +7,18 @@
 
 
 <div class="grid-container-list">
+
+  <form method="get" action='/search'>
+    <label for="search">Search</label>
+    <input
+    type="text"
+    name="search"
+    id="search"
+    value=""
+    />
+    <input type="submit" value="Search">
+  </form>
+
   <% @all_locations.each do |item| %>
     <div class="item-list">
       <h3 class="item-text">
@@ -44,18 +56,12 @@
   </div>
 </div>
 <div class="grid-container-list">
-  <% @all_locations.each do |item| %>
+  <% @all_countries.each do |country| %>
     <div class="item-list">
       <h3 class="item-text">
-        <%= item.city.country.name %>
-        <%if item.visited == "t" %>
-        -- Visited
-        <%else%>
-        -- Not Visited
-        <%end%>
+        <%= country.name %>
       </h3>
-
-      <form method="get" action="/edit-country/<%=item.id%>">
+      <form method="get" action="/edit-country/<%=country.id%>">
         <input name="visited"  type="submit" value="Edit">
       </form>
     </div>

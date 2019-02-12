@@ -46,7 +46,7 @@ class Country
     return Country.new(result)
   end
 
-  def self.find_by_name(name)
+  def self.find_by_name_count(name)
     sql = "SELECT * FROM countries WHERE name = $1"
     values = [name]
     begin

@@ -47,7 +47,7 @@ class City
     return City.new(result)
   end
 
-  def self.find_by_name(name)
+  def self.find_by_name_count(name)
     sql = "SELECT * FROM cities WHERE name = $1"
     values = [name]
     begin

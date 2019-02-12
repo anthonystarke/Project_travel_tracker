@@ -2,7 +2,7 @@
 <h1> Edit Location Details</h1>
 
 <p>
-  <%= @item.city.country.name %>
+  <%= @item.name %>
 </p>
 
 <form method="post" action='/save-changes-country/<%=@item.id%>'>
@@ -11,7 +11,7 @@
   type="text"
   name="country_name"
   id="country_name"
-  value=<%=@item.city.country.name%>
+  value=<%=@item.name%>
   />
   <input type="submit" value="Save Changes">
 </form>
