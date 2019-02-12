@@ -26,8 +26,7 @@ class Country
     sql = "SELECT * FROM cities
           INNER JOIN countries
           ON cities.country_id = countries.id
-          WHERE countries.id = $1
-      "
+          WHERE countries.id = $1"
     values = [@id]
     result = SqlRunner.run(sql,values)
     return result.count
@@ -45,6 +44,17 @@ class Country
     values = [id]
     result = SqlRunner.run(sql,values)[0]
     return Country.new(result)
+  end
+
+  def self.find_by_name(name)
+    sql = "SELECT * FROM countries WHERE name = $1"
+    values = [name]
+    begin
+      result = SqlRunner.run(sql,values)[0]
+      return result.count
+    rescue
+      return 0
+    end
   end
 
   def self.delete(id)

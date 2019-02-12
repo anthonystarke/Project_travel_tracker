@@ -47,6 +47,17 @@ class City
     return City.new(result)
   end
 
+  def self.find_by_name(name)
+    sql = "SELECT * FROM cities WHERE name = $1"
+    values = [name]
+    begin
+      result = SqlRunner.run(sql,values)[0]
+      return result.count
+    rescue
+      return 0
+    end
+  end
+
   def self.find_all
     sql = "SELECT * FROM cities"
     values = []

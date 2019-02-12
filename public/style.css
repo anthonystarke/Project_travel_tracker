@@ -15,6 +15,15 @@
   font-size: 1em;
 }
 
+.item-logo {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  grid-column: 1;
+  padding: 5px;
+  font-size: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
 .grid-container-add-new {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -31,6 +40,9 @@
   font-size: 1em;
 }
 
+a:hover {
+  background-color: yellow;
+}
 
 .grid-container-nav{
   display: grid;

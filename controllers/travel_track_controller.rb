@@ -20,7 +20,11 @@ end
 
 get'/all' do
   @all_locations = Bucket_List.find_all()
-
+  @all_countries = []
+  @all_locations.each do |city|
+    @all_countries << city.country
+  end
+  @all_countries.uniq!
   erb(:all)
 end
 
@@ -71,8 +75,12 @@ post '/delete/:id' do
 end
 
 post '/save-country' do
-  country_1 = Country.new(params)
-  country_1.save()
+  count = Country.find_by_name(params["name"])
+  # binding.pry
+  if(count < 1)
+    country_1 = Country.new(params)
+    country_1.save()
+  end
   redirect to '/add-new'
 end
 
@@ -115,15 +123,21 @@ post '/not-visited-city/:id' do
 end
 
 post '/save-city' do
-  city_1 = City.new(params)
-  city_1.save()
 
-  details = {
-    "visited" => params[:visited],
-    "city_id" => city_1.id
-  }
+  count = City.find_by_name(params["name"])
   # binding.pry
-  bucket_list = Bucket_List.new(details)
-  bucket_list.save()
+  if(count < 1)
+
+    city_1 = City.new(params)
+    city_1.save()
+
+    details = {
+      "visited" => params[:visited],
+      "city_id" => city_1.id
+    }
+    # binding.pry
+    bucket_list = Bucket_List.new(details)
+    bucket_list.save()
+  end
   redirect to back
 end
