@@ -1,8 +1,7 @@
-
-
-.location-image {
-  width:0.5em;
-
+* {
+  box-sizing:border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .grid-container-title {
@@ -10,6 +9,11 @@
   grid-template-columns: repeat(5, 1fr);
   /* background-color: #2196F3; */
   padding: 5px;
+}
+
+.location-image {
+  height:100px;
+  width:100px;
 }
 
 .page-title {
@@ -104,7 +108,8 @@ a:hover {
 }
 
 .profile-pic {
-  width: 5em;
+  height:5em;
+  width:5em;
 }
 
 .profile-text{
