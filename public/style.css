@@ -4,6 +4,13 @@
   margin: 0;
 }
 
+body {
+  background-image: url("images/cloudy-sky.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
 .indiv-page-title-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -14,9 +21,13 @@
 .indiv-page-title {
   /* background-color: rgba(255, 255, 255, 0.8); */
   grid-column: 2;
-  padding: 5px;
+  padding-bottom: 3em;
   text-align: center;
   font-size: 1em;
+}
+
+.generic-title {
+  padding-bottom:0.5em;
 }
 
 .location-image {
@@ -31,21 +42,40 @@
   font-size: 10px;
   text-align: center;
   font-size: 1em;
+  /* background-image: url("images/family-travel.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto; */
+
 }
 
-.visited-container-list {
+.generic-container-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 2em;
   padding-left: 5em;
   padding-right: 5em;
+  padding-bottom: 5em;
 }
 
-.visited-list {
+.generic-list {
   grid-column: auto;
-  font-size: 10px;
+  margin:10px;
+  border-radius:10%;
+}
+
+.generic-list-text {
+  opacity:1;
   text-align: center;
   font-size: 1em;
+  index:1;
+
+}
+
+.generic-list-background {
+  background-color:rgba(37,51,66, 0.5);
+  index:0;
+
 }
 
 .grid-container-add-new {
@@ -65,7 +95,8 @@
 }
 
 a:hover {
-  background-color: yellow;
+  background-color: #253342;
+  color: #D1D3D6;
 }
 
 .grid-container-nav{
@@ -78,27 +109,61 @@ a:hover {
 .item-nav {
   /* background-color: rgba(255, 255, 255, 0.8); */
   grid-column: auto;
-  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 5px;
-  font-size: 10px;
   text-align: center;
   font-size: 2em;
 
 }
 
-.grid-container-main{
+.title-container{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* background-color: #2196F3; */
-  padding: 5px;
+  padding: 1em;
+  /* background-image: url("images/cloudy-sky.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto; */
+
+}
+.title-image {
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire */
 }
 
-.item-main {
-  /* background-color: rgba(255, 255, 255, 0.8); */
+.title-item {
+  /* background-color: #2196F3; */
   grid-column: 2;
   padding: 5px;
   font-size: 10px;
   text-align: center;
+}
+
+.menu-container{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* background-color: #2196F3; */
+  padding: 1em;
+}
+
+.menu-item {
+  background-color: #A4B5CB;
+  grid-column: auto;
+  padding: 5px;
+  margin-left:1em;
+  margin-right:1em;
+  border-radius:15%;
+
+  text-align: center;
+}
+
+.menu-text{
+  font-size: 1.8em;
+  text-decoration:none;
+  color:#253342;
 }
 
 .grid-container-list {

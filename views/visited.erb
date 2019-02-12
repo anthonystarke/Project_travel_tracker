@@ -4,15 +4,16 @@
   </div>
 </div>
 
-  <div class="visited-container-list">
+  <div class="generic-container-list">
     <% @visited.each do |item| %>
-      <div class="visited-item">
+      <div class="generic-item generic-list-text generic-list-background">
         <%if item.city.photo_loc %>
           <img class="location-image" src="<%=item.city.photo_loc%>" />
         <%else%>
           <img class="location-image" src="./images/empty.jpg" />
         <%end%>
-        <h3 class="item-text"><%=item.city.name%> - <%= item.city.country.name %></h3>
+        <h3 class="item-text"><%=item.city.name%></h3>
+        <h4 class="item-text"><%= item.city.country.name%></h4>
         <form method="post" action="/not-visited-city/<%=item.id%>">
           <input name="visited"  type="submit" value="Not Visited">
         </form>

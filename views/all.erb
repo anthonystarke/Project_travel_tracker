@@ -1,7 +1,7 @@
 <div class="indiv-page-title-container">
   <div class="indiv-page-title">
-    <h1>List of all destinations</h1>
-    <h2>List of all Cities</h2>
+    <h1 class="generic-title">List of all destinations</h1>
+    <h2 class="generic-title">List of all Cities</h2>
     <form method="get" action='/search'>
       <label for="search">Search</label>
       <input
@@ -16,10 +16,10 @@
 </div>
 
 
-<div class="grid-container-list">
+<div class="generic-container-list">
 
   <% @all_locations.each do |item| %>
-    <div class="item-list">
+    <div class="generic-list generic-list-text generic-list-background">
       <h3 class="item-text">
         <%= item.city.name %>
         <%if item.visited == "t" %>
@@ -54,9 +54,9 @@
     <h2>List of all Countries</h2>
   </div>
 </div>
-<div class="grid-container-list">
+<div class="generic-container-list">
   <% @all_countries.each do |country| %>
-    <div class="item-list">
+    <div class="generic-list generic-list-text generic-list-background">
       <h3 class="item-text">
         <%= country.name %>
       </h3>
