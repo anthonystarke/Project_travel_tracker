@@ -1,13 +1,13 @@
-<div class="grid-container-title">
-  <div class="page-title">
+<div class="indiv-page-title-container">
+  <div class="indiv-page-title">
     <h1>Not Visited - Locations</h1>
   </div>
 </div>
 
 
-  <div class="grid-container-list">
+  <div class="visited-container-list">
     <% @not_visited.each do |item| %>
-      <div class="item-list">
+      <div class="visited-list">
         <%if item.city.photo_loc %>
           <img class="location-image" src="<%=item.city.photo_loc%>" />
         <%end%>
