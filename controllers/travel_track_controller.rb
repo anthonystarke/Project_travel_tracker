@@ -18,6 +18,12 @@ get '/home' do
   erb(:main)
 end
 
+get '/upload_image' do
+  erb(:upload_image)
+
+
+end
+
 get '/all' do
   @all_locations = Bucket_List.find_all()
   @all_countries = Country.find_all()
