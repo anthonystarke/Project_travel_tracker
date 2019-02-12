@@ -34,6 +34,23 @@
   font-size: 1em;
 }
 
+.visited-container-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* background-color: #2196F3; */
+  padding: 5em;
+}
+
+.visited-list {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  grid-column: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
 .grid-container-add-new {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

@@ -1,15 +1,16 @@
 
-
 <div class="grid-container-title">
   <div class="page-title">
     <h1>Visited Places</h1>
   </div>
 </div>
 
-  <div class="grid-container-list">
+  <div class="visited-container-list">
     <% @visited.each do |item| %>
-      <div class="item-list">
-        <img class="location-image" src="<%=item.city.photo_loc%>" />
+      <div class="visited-item">
+        <%if item.city.photo_loc %>
+          <img class="location-image" src="<%=item.city.photo_loc%>" />
+        <%end%>
         <h3 class="item-text"><%=item.city.name%> - <%= item.city.country.name %></h3>
         <form method="post" action="/not-visited-city/<%=item.id%>">
           <input name="visited"  type="submit" value="Not Visited">
