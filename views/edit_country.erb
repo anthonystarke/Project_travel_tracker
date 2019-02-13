@@ -1,20 +1,20 @@
 <div class="edit-page-container">
   <div class="edit-page-list">
 
-    <h3 class="add-new-text"> Edit Location Details</h3>
+    <h3 class="edit-page-title"> Edit Country Info</h3>
     <br />
-    <h5 class="add-new-text">  <%= @item.name %> </h5>
-
-
+    <h3 class="edit-page-text">  <%= @item.name %> </h3>
+    <br />
     <form method="post" action='/save-changes-country/<%=@item.id%>'>
       <label for="save-changes"><h3>Country Name</h3></label>
+      </br>
       <input
       type="text"
       name="country_name"
-      id="country_name"
+      id="edit_field_name"
       value=<%=@item.name%>
       />
-      <input type="submit" value="Save Changes">
+      <input id="submit-button" type="submit" value="Save Changes">
     </form>
   </div>
 </div>

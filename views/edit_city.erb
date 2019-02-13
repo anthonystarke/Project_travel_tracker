@@ -1,20 +1,17 @@
 <div class="edit-page-container">
   <div class="edit-page-list">
 
-    <h3 class="add-new-text"> Edit City Info</h3>
-
-    <h1> Edit Location Details</h1>
-
-    <p>
-      <%= @item.city.name %>
-    </p>
-
+    <h3 class="edit-page-title"> Edit City Info</h3>
+    <br />
+    <h3 class="edit-page-text"> <%= @item.city.name %> </h3>
+    <br />
     <form method="post" action='/save-changes-city/<%=@item.id%>'>
-      <label for="save-changes">City Name</label>
+      <label for="save-changes"><h3>City Name</h3></label>
+      <br/>
       <input
       type="text"
       name="city_name"
-      id="city_name"
+      id="edit_field_name"
       value=<%=@item.city.name %>
       />
       <input type="submit" value="Save Changes">

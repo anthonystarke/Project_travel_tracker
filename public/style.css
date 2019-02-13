@@ -11,6 +11,18 @@ body {
   background-size: auto;
 }
 
+#edit_field_name {
+  font-size:1em;
+     height:2.5em;
+     width:7em;
+}
+
+/* #submit-button {
+     height: 100px;
+     width: 400px;
+  /* font-size: 8em; */
+} */
+
 .indiv-page-title-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -64,9 +76,7 @@ body {
   margin:10px;
   border-radius:10%;
   padding: 0.5em;
-  /* background-color:rgba(37,51,66, 0.5); */
 
-  /* border: solid red; */
 }
 
 .generic-container-list {
@@ -150,10 +160,6 @@ a:hover {
   grid-template-columns: repeat(3, 1fr);
   /* background-color: #2196F3; */
   padding: 1em;
-  /* background-image: url("images/cloudy-sky.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto; */
 
 }
 .title-image {
@@ -219,6 +225,17 @@ a:hover {
 .profile-pic {
   height:5em;
   width:5em;
+}
+.edit-page-title{
+  font-size:3em;
+}
+
+.edit-page-sub-title{
+  font-size:2.0em;
+}
+
+.edit-page-text{
+  font-size:2.0em;
 }
 
 .profile-text{
