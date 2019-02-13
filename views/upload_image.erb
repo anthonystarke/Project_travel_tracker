@@ -1,13 +1,10 @@
-<html>
-    <head>
-        <title>Image Upload</title>
-    </head>
-    <body>
-        <h1>Upload Image</h1>
-
-        <form action="/save_image/<%=@location.city.id%>" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload image">
-        </form>
-    </body>
-</html>
+<div class="generic-container-list">
+  <div class="generic-list">
+    <h1>Upload Image</h1>
+    <br/>
+    <form action="/save_image/<%=@location.city.id%>" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+      <br/> <input class="text" type="submit" value="Upload image">
+    </form>
+  </div>
+</div>

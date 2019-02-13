@@ -1,14 +1,14 @@
 <div class="indiv-page-title-container">
   <div class="indiv-page-title">
     <h1>Add New</h1>
+
   </div>
 </div>
 
-<div class="grid-container-add-new">
-  <div class="page-add-list">
-
-    <h3> Add New country </h3>
-
+<div class="add-new-container">
+  <div class="add-new-list">
+    <h3 class="add-new-text"> Add New country </h3>
+      <br/>
     <form method="post" action="/save-country">
       <label for="save-country">Country</label>
       <input
@@ -18,29 +18,39 @@
       />
       <input type="submit" value="Save Country">
     </form>
-
-    <h3>New Cities will need a country</h3>
-
+  </div>
+  <div class="add-new-list">
+    <h3 class="add-new-text">New Cities will need a country</h3>
+    <br/>
     <form method="post" action="/save-city">
-
-      <label for="save-city">City</label>
+      <div class="add-new-form-text">
+      <label for="save-city">
+        City
+        </label>
       <input
       type="text"
       name="name"
       id="city_name"
       />
-      <h3>Choose a Country</h3>
-      <select name="country_id" id="country">
-        <% @all_countries.each do |country| %>
-          <option value= <%= country.id %>><%= country.name %></option>
-        <% end %>
-      </select>
-      <p>Visited</p>
-      <select name="visited" id="country">
-        <option value=<%=true%>>Yes</option>
-        <option value=<%=false%>>No</option>
-      </select>
-
+      </div>
+      <br/>
+      <div class="add-new-form-text">
+        Choose a Country
+        <select name="country_id" id="country">
+          <% @all_countries.each do |country| %>
+            <option value= <%= country.id %>><%= country.name %></option>
+          <% end %>
+        </select>
+      </div>
+      <br/>
+      <div class="add-new-form-text">
+        Visited
+        <select name="visited" id="country">
+          <option value=<%=true%>>Yes</option>
+          <option value=<%=false%>>No</option>
+        </select>
+      </div>
+      <br/>
       <input type="submit" value="Save Country">
     </form>
   </div>

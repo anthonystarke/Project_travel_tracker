@@ -33,6 +33,13 @@ body {
 .location-image {
   height:10em;
   width:10em;
+  border-radius:15%;
+}
+
+.main-page-image {
+  height:9em;
+  width:auto;
+  border-radius:15%;
 }
 
 .item-logo {
@@ -63,7 +70,9 @@ body {
   margin:10px;
   border-radius:10%;
   padding: 0.5em;
-  border: solid red;
+  /* background-color:rgba(37,51,66, 0.5); */
+
+  /* border: solid red; */
 }
 
 .generic-container-list {
@@ -79,7 +88,7 @@ body {
   grid-column: auto;
   margin:10px;
   border-radius:10%;
-  padding: 0.5em;
+  padding: 1.0em;
 }
 
 .generic-list-text {
@@ -91,25 +100,33 @@ body {
 }
 
 .generic-list-background {
-  background-color:rgba(37,51,66, 0.5);
+  background-color:rgba(112, 143, 169, 0.4);
   index:0;
 
 }
+.add-new-text {
+  font-size: 2em;
+}
 
-.grid-container-add-new {
+.add-new-form-text {
+  font-size: 1.2em;
+}
+
+.add-new-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   /* background-color: #2196F3; */
   padding: 5px;
 }
 
-.page-add-list {
+.add-new-list {
   /* background-color: rgba(255, 255, 255, 0.8); */
-  grid-column: 3;
+  grid-column: auto;
   padding: 5px;
   font-size: 10px;
-  text-align: center;
+  text-align: left;
   font-size: 1em;
+  /* border: solid 10px red; */
 }
 
 a:hover {
