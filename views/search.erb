@@ -1,16 +1,19 @@
-<h1>Search Result</h1>
+<div class="edit-page-container">
+  <div class="edit-page-list">
 
+    <h3 class="edit-page-title">Search Result</h3>
 
-<% @locations_found.each do |item| %>
-  <p>
-    <%=item.city.name%> - <%=item.city.country.name%>
-  </p>
+    <% @locations_found.each do |item| %>
 
-  <form method="get" action="/edit-city/<%=item.id%>">
-    <input name="visited"  type="submit" value="Edit">
-  </form>
+        <h3 class="edit-page-text"><%=item.city.name%> - <%=item.city.country.name%> </h3>
+        </br>
+      <form method="get" action="/edit-city/<%=item.id%>">
+        <input name="visited"  type="submit" value="Edit">
+      </form>
 
-  <form method="post" action="/delete/<%=item.id%>">
-    <input name="visited"  type="submit" value="Delete">
-  </form>
-<%end%>
+      <form method="post" action="/delete/<%=item.id%>">
+        <input name="visited"  type="submit" value="Delete">
+      </form>
+    <%end%>
+    </div>
+  </div>
