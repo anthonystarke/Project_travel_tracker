@@ -8,7 +8,8 @@ body {
   background-image: url("images/cloudy-sky.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: stretch;
+  background-color:#698BB8;
 }
 
 #edit_field_name {
